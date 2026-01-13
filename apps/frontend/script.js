@@ -4,7 +4,7 @@ const addressEl = document.getElementById("address");
 const networkEl = document.getElementById("network");
 const balanceEl = document.getElementById("balance");
 
-// Avalanche Fuji Testnet chainId (hex)
+//chainId Avalanche Fuji Testnet (hex)
 const AVALANCHE_FUJI_CHAIN_ID = "0xa869";
 
 //menyingkat address dengan membuat fungsi shortenAddress
@@ -29,7 +29,7 @@ async function connectWallet(){
   try{
     statusEl.textContent = "Connecting...";
 
-    // Request wallet accounts
+    //request wallet accounts
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
@@ -41,7 +41,7 @@ async function connectWallet(){
 
     console.log({ address });
 
-    // Get chainId
+    //mendapatkan chainId yang aktif
     const chainId = await window.ethereum.request({
       method: "eth_chainId",
     });
@@ -57,7 +57,7 @@ async function connectWallet(){
       connectBtn.disabled = true;
       connectBtn.innerText = "Connected ✅";
 
-      // Get AVAX balance
+      //mengambil AVAX balance
       const balanceWei = await window.ethereum.request({
         method: "eth_getBalance",
         params: [address, "latest"],
@@ -102,7 +102,7 @@ if(window.ethereum){
     }
   });
   
-  window.ethereum.on('chainChanged', () =>{
+  window.ethereum.on('chainChanged', () => {
     window.location.reload();
   });
 }
