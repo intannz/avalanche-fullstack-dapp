@@ -25,7 +25,7 @@ Update terakhir: **Day 2 (Smart Contract)**
 Backend Blockchain (Smart Contract) telah berhasil dideploy ke jaringan testnet.
 
 * **Network:** Avalanche Fuji Testnet (C-Chain)
-* **Contract Address:** `[MASUKKAN_ALAMAT_KONTRAK_BARU_DISINI]`
+* **Contract Address:** `0xad8891b74c5bb669e67b33b8a6eb714e2f64e9c6`
 * **Fitur:** Ownership, Event Logging, Access Control (*OnlyOwner*)
 
 ---
