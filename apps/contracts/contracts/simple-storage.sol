@@ -9,7 +9,7 @@ contract SimpleStorage {
 
     //ketika ownernya berubah ada track perubahannya
     event OwnerSet(address indexed oldOwner, address indexed newOwner);
-    //ketika ada update akan track perubahannyna
+    //ketika ada update akan track perubahannya
     event ValueUpdated(uint256 newValue);
 
     constructor() {
@@ -17,7 +17,7 @@ contract SimpleStorage {
         emit OwnerSet(address(0), owner);
     }
 
-    //task 4 (acces control)
+    //task 4 (access control)
     modifier onlyOwner() {
         require(msg.sender == owner, "Not owner");
         _; 
@@ -27,7 +27,7 @@ contract SimpleStorage {
         storedValue = _value;
         emit ValueUpdated(_value);
     }
-    //membaca nilai dari blockchain (read) terakhir klai di update
+    //membaca nilai dari blockchain (read) terakhir kali di update
     function getValue() public view returns (uint256) {
         return storedValue;
     }

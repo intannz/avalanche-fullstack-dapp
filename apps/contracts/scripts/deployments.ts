@@ -3,15 +3,15 @@ import { viem } from "hardhat";
 import Artifact from "../artifacts/contracts/simple-storage.sol/SimpleStorage.json";
 
 async function main() {
-  // Wallet client (signer)
+  //wallet client (signer)
   const [walletClient] = await viem.getWalletClients();
 
-  // Public client (read-only)
+  //public client (read-only)
   const publicClient = await viem.getPublicClient();
 
   console.log("Deploying with account:", walletClient.account.address);
 
-  // Deploy contract
+  //deploy contract
   const hash = await walletClient.deployContract({
     abi: Artifact.abi,
     bytecode: Artifact.bytecode as `0x${string}`,
@@ -20,7 +20,7 @@ async function main() {
 
   console.log("Deployment tx hash:", hash);
 
-  // Wait for confirmation
+  //wait for confirmation
   const receipt = await publicClient.waitForTransactionReceipt({
     hash,
   });
