@@ -22,13 +22,11 @@ contract SimpleStorage {
         require(msg.sender == owner, "Not owner");
         _; 
     }
-
     //simpan nilai ke blockchain (write)
     function setValue(uint256 _value) public onlyOwner {
         storedValue = _value;
         emit ValueUpdated(_value);
     }
-
     //membaca nilai dari blockchain (read) terakhir klai di update
     function getValue() public view returns (uint256) {
         return storedValue;
