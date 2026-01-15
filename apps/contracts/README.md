@@ -1,80 +1,94 @@
-# ⛓️ Avalanche DApp – Smart Contracts (Day 2)
+# ⛓️ Avalanche Smart Contract — Day 2
 
-Folder ini merupakan **backend blockchain** untuk proyek **Avalanche Fullstack DApp**. Di dalamnya terdapat **Smart Contract (Solidity)**, **konfigurasi Hardhat**, serta **script deployment** ke jaringan Avalanche.
+Folder ini berisi **backend blockchain** untuk proyek **Avalanche Fullstack dApp**.
+Smart contract dikembangkan menggunakan **Solidity** dengan **Hardhat** sebagai framework utama untuk compile, testing, dan deployment ke jaringan **Avalanche Fuji Testnet**.
+
+---
+
+## 📍 Deployment Info
+
+| Item         | Detail                           |
+| ------------ | -------------------------------- |
+| **Network**  | Avalanche Fuji Testnet (C-Chain) |
+| **Contract** | `SimpleStorage.sol`              |
+| **Address**  | `0xPASTE_ALAMAT_KONTRAK_DI_SINI` |
+
+🔎 Cek aktivitas kontrak melalui **Snowtrace** (events & transaksi).
+
+---
+
+## ✨ Fitur Smart Contract
+
+Kontrak **`SimpleStorage.sol`** telah dimodifikasi sesuai tugas **Day 2**:
+
+### ✅ Task 1 — Ownership
+
+* Alamat **owner** disimpan otomatis saat kontrak dideploy
+* Menggunakan `constructor`
+
+### ✅ Task 2 — Event Logging
+
+Semua aktivitas penting tercatat di blockchain:
+
+* `OwnerSet(address indexed owner)`
+* `ValueUpdated(uint256 oldValue, uint256 newValue)`
+
+### ✅ Task 4 — Access Control (Security)
+
+* Modifier `onlyOwner`
+* Fungsi `setValue` **hanya bisa dipanggil oleh owner**
+* Akses ilegal akan **revert**
+
+> Intinya: aman, transparan, dan bisa diaudit. Blockchain-approved ✅
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Hardhat** – Framework untuk development & testing smart contract Ethereum/Avalanche
-* **Solidity** – Bahasa pemrograman smart contract
-* **TypeScript** – Digunakan untuk scripting dan testing yang lebih aman
-* **Yarn** – Package manager
+* **Hardhat** — Smart contract development & testing
+* **Solidity** — v0.8.28
+* **TypeScript** — Script & test yang lebih aman
+* **Yarn** — Package manager
 
 ---
 
-## 🚀 Cara Menjalankan
+## 🚀 Cara Menjalankan Project
 
 ### 1️⃣ Masuk ke Folder
-
-Pastikan terminal berada di folder `contracts`:
 
 ```bash
 cd apps/contracts
 ```
 
----
-
 ### 2️⃣ Install Dependencies
-
-Install seluruh library yang dibutuhkan (Hardhat, dotenv, dll):
 
 ```bash
 yarn install
 ```
 
----
+### 3️⃣ Setup Environment (.env)
 
-### 3️⃣ Konfigurasi Environment (.env)
-
-Buat file `.env` di dalam folder `apps/contracts`, lalu isi dengan konfigurasi berikut:
+Buat file `.env` (**jangan di-commit**) lalu isi:
 
 ```env
-PRIVATE_KEY=masukkan_private_key_metamask_disini_tanpa_0x
+PRIVATE_KEY=private_key_metamask_tanpa_0x
 RPC_URL=https://api.avax-test.network/ext/bc/C/rpc
-ETHERSCAN_API=opsional_jika_ada
 ```
-
-⚠️ **PENTING:**
-
-* Jangan pernah commit file `.env` ke GitHub
-* File ini sudah otomatis di-ignore melalui `.gitignore`
 
 ---
 
-### 4️⃣ Compile Smart Contract
+### 4️⃣ Compile & Test
 
-Mengubah kode Solidity menjadi bytecode:
+Pastikan tidak ada error:
 
 ```bash
 yarn hardhat compile
-```
-
----
-
-### 5️⃣ Testing
-
-Menjalankan unit test untuk memastikan logika kontrak berjalan dengan benar:
-
-```bash
 yarn hardhat test
 ```
 
 ---
 
-### 6️⃣ Deploy ke Avalanche Fuji (Testnet)
-
-Deploy smart contract ke jaringan **Avalanche Fuji C-Chain**:
+### 5️⃣ Deploy ke Avalanche Fuji
 
 ```bash
 yarn hardhat run scripts/deployments.ts --network avalancheFuji
@@ -82,56 +96,50 @@ yarn hardhat run scripts/deployments.ts --network avalancheFuji
 
 ---
 
-## 📂 Struktur Folder
+## 🧯 Troubleshooting
 
-```
-contracts/        # File .sol (Smart Contract)
-scripts/          # Script TypeScript untuk deployment (deployments.ts)
-test/             # Unit test smart contract
-helpers/          # Helper & environment config (constants.ts)
-hardhat.config.ts # Konfigurasi utama Hardhat
-```
+### ❌ Type Definition Error
 
----
-
-## 📝 Catatan & Troubleshooting
-
-Beberapa error umum yang sering muncul saat development:
-
-### ❌ Error Type Definition (minimatch / process)
-
-Pastikan type Node.js sudah ter-install:
+Jika muncul error terkait `process` atau `minimatch`:
 
 ```bash
 yarn add -D @types/node @types/minimatch
 ```
 
+💡 **Tips:** Restart *TypeScript Server* di VS Code.
+
 ---
 
-### ❌ Error HH606 (Solidity Version Mismatch)
+### ❌ Insufficient Funds
 
-* Cek versi Solidity di `hardhat.config.ts`
-* Pastikan sesuai dengan `pragma solidity` di file `.sol`
+* Pastikan wallet memiliki saldo **AVAX Fuji**
+* Ambil gratis melalui **Avalanche Faucet**
 
-Contoh:
+---
 
-```solidity
-pragma solidity 0.8.28;
+### ❌ Error "Not owner"
+
+* Fungsi `setValue` dilindungi `onlyOwner`
+* Gunakan wallet yang sama dengan wallet saat deploy
+
+---
+
+## 📝 Update README
+
+1. Buka file:
+
+   ```bash
+   apps/contracts/README.md
+   ```
+2. Ganti isinya dengan file ini
+3. Isi alamat kontrak hasil deploy
+4. Commit perubahan:
+
+```bash
+git add apps/contracts/README.md
+git commit -m "docs: finalize Day 2 smart contract README"
+git push origin main
 ```
-
 ---
 
-### ❌ VS Code Solidity Extension Conflict
-
-* Gunakan **Solidity by Nomic Foundation**
-* Disable extension lain seperti **Wake** atau **Juan Blanco** jika terjadi error (highlight merah)
-
----
-
-### ❌ Error Insufficient Funds
-
-* Pastikan saldo **AVAX Fuji (C-Chain)** mencukupi
-* Ambil AVAX gratis melalui **Avalanche Faucet** sebelum deploy
-
----
-
+✨ **Happy building on Avalanche!** 🔺
