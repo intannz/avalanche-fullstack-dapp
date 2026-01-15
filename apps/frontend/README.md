@@ -94,17 +94,4 @@ Biasanya akan berjalan di:
 
 ---
 
-## 👉 Cara Update
-
-1. Overwrite file `docs/day-1/README.md` dengan konten ini
-2. Commit dan push perubahan:
-
-```bash
-git add docs/day-1/README.md
-git commit -m "Update Day 1 docs: Add technical details & usage guide"
-git push origin main
-```
-
----
-
 ✨ **Happy building on Avalanche!** 🔺
