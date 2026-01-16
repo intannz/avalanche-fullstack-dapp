@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+:root {
+  /*font montserrat*/
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+body {
+  /*warna background merah gradient*/
+  background: linear-gradient(120deg, #920000, #f82c2c);
+  min-height: 100vh;
+  color: #171616;
+}
