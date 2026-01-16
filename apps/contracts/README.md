@@ -11,7 +11,7 @@ Smart contract dikembangkan menggunakan **Solidity** dengan **Hardhat** sebagai 
 | ------------ | -------------------------------- |
 | **Network**  | Avalanche Fuji Testnet (C-Chain) |
 | **Contract** | `SimpleStorage.sol`              |
-| **Address**  | `0xPASTE_ALAMAT_KONTRAK_DI_SINI` |
+| **Address**  | `0xAD8891B74c5Bb669e67B33b8A6Eb714e2f64e9c6` |
 
 🔎 Cek aktivitas kontrak melalui **Snowtrace** (events & transaksi).
 
