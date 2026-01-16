@@ -124,22 +124,4 @@ yarn add -D @types/node @types/minimatch
 
 ---
 
-## 📝 Update README
-
-1. Buka file:
-
-   ```bash
-   apps/contracts/README.md
-   ```
-2. Ganti isinya dengan file ini
-3. Isi alamat kontrak hasil deploy
-4. Commit perubahan:
-
-```bash
-git add apps/contracts/README.md
-git commit -m "docs: finalize Day 2 smart contract README"
-git push origin main
-```
----
-
 ✨ **Happy building on Avalanche!** 🔺
