@@ -8,10 +8,11 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('Simple Storage dApp API')
     .setDescription(
-      'Backend API for Simple Storage dApp on Avalanche Fuji, developed for the Day 4 Short Course',
+      'Backend API for Simple Storage dApp on Avalanche Fuji.\n' +
+        '\nIntan Maharani - 241011402542',
     )
     .setVersion('1.0')
-    .addTag('Intan Maharani - 241011402542')
+    .addTag('Blockchain')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('documentation', app, documentFactory);
