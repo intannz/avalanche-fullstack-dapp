@@ -45,7 +45,7 @@ if (chainId === AVALANCHE_FUJI_CHAIN_ID) {
 ### 🚀 Cara Menjalankan (Day 1)
 
 ```bash
-cd docs/day-1
+cd apps/frontend
 npx serve .
 ```
 
