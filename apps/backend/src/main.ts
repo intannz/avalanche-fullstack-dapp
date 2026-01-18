@@ -5,6 +5,8 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.enableCors(); //day 5
+
   const config = new DocumentBuilder()
     .setTitle('Simple Storage dApp API')
     .setDescription(
@@ -17,7 +19,7 @@ async function bootstrap() {
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('documentation', app, documentFactory);
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT || 3000, '0.0.0.0'); //day 5
 }
 
 bootstrap().catch((error) => {

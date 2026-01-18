@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'; 
 import ReadContract from '../src/components/ReadContract';
 import WriteContract from '../src/components/WriteContract';
+import BackendData from '../src/components/BackendData'; //day 5
 import { useAccount, useConnect, useDisconnect, useChainId, useSwitchChain } from 'wagmi';
 import { avalancheFuji } from 'wagmi/chains';
 
@@ -98,6 +99,8 @@ export default function Home() {
               <div>
                  <ReadContract />
                  <WriteContract />
+                 {/*day 5 tambah BackendData */}
+                 <BackendData /> 
               </div>
             )}
 

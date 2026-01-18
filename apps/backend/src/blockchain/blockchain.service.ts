@@ -111,7 +111,7 @@ export class BlockchainService {
     //jika RPC timeout
     if (message.includes('timeout')) {
       throw new ServiceUnavailableException(
-        'RPC timeout. Silakan coba beberapa saat lagi.',
+        'RPC timeout. Please try again later.',
       );
     }
 
@@ -122,13 +122,13 @@ export class BlockchainService {
       message.includes('failed')
     ) {
       throw new ServiceUnavailableException(
-        'Tidak dapat terhubung ke blockchain RPC.',
+        'Unable to connect to blockchain RPC.',
       );
     }
     //error lain
     console.error(error);
     throw new InternalServerErrorException(
-      'Terjadi kesalahan saat membaca data blockchain.',
+      'An error occurred while reading blockchain data.',
     );
   }
 }
