@@ -70,10 +70,19 @@ avalanche-fullstack-dapp/
 
 ## 🚀 Cara Menjalankan (Local)
 
-Frontend: cd apps/frontend/web npm install npm run dev
+Frontend: 
+```bash
+cd apps/frontend/web npm install npm run dev
+```
 
-Backend: cd apps/backend pnpm install pnpm run start:dev
+Backend: 
+```bash
+cd apps/backend pnpm install pnpm run start:dev
+```
 
-Contract: cd apps/contracts yarn install yarn hardhat test
-
+Contract: 
+```bash
+cd apps/contracts yarn install yarn hardhat test
+```
+---
 ✨ Happy building on Avalanche! 🔺
